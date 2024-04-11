@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            max-width: 600px;
+            max-height: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            text-align: left;
+        }
+        .show-container {
+            display: block; 
+        }
+        .header-button-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #heading {
+            flex-grow: 1;
+            text-align: center;
+        }
+        #toggleBtn {
+            align-items: center;
+        }
+        #countryList {
+            display: none; 
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto; 
+        }
+        #countryList li {
+            padding: 5px;
+            cursor: pointer;
+        }
+        #submitBtn{
+            color:white;
+            width: 100%;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-button-container">
+        <h2 id="heading">Business Information</h2>
+    </div>
+
+    <div class="container">
+        <label for="country">Select Country:</label>
+        <input type="text" id="countrySearch" oninput="filterCountries()" onclick="showCountryList()">
+        <ul id="countryList"></ul>
+
+        
+        <br><br>
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName">
+
+        
+        <h4>What best describes your business:</h4>
+        <input type="radio" name="businessType" value="small"> Trade(import/export)physical goods<br>
+        <input type="radio" name="businessType" value="medium"> logistic shipping operator<br>
+        <input type="radio" name="businessType" value="large"> not involved physical goods at all
+
+        
+        <h4>Annual Turnover:</h4>
+        <input type="radio" name="turnover" value="lessThan1M"> $0-50k<br>
+        <input type="radio" name="turnover" value="1Mto10M"> $50-100k<br>
+        <input type="radio" name="turnover" value="moreThan10M"> $100-500k<br>
+        <input type="radio" name="turnover" value="lessThan1M"> $500k-1M<br>
+        <input type="radio" name="turnover" value="1Mto10M"> $1-5M<br>
+        <input type="radio" name="turnover" value="moreThan10M"> $5-10M<br>
+        <input type="radio" name="turnover" value="moreThan10M"> $10-50M<br>
+        <input type="radio" name="turnover" value="moreThan10M"> >$50M
+
+
+
+        <br>
+        <button id="submitBtn">Continue</button>
+       <!-- <script src="create-account3.js"></script> -->
+    </div>
+
+    <script>
+        const countries = ["USA", "Canada", "UK", "Australia", "Germany", "France", "India", "Japan", "China", "Afghanistan", "Albania", "Algeria", /* and so on... */ ];
+
+        function filterCountries() {
+            const countrySearchInput = document.getElementById('countrySearch');
+            const countryList = document.getElementById('countryList');
+            const searchTerm = countrySearchInput.value.toLowerCase();
+
+            countryList.innerHTML = '';
+
+
+            countries.forEach(country => {
+                if (country.toLowerCase().includes(searchTerm)) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = country;
+                    listItem.addEventListener('click', function () {
+                        countrySearchInput.value = country;
+                        countryList.innerHTML = ''; 
+                    });
+                    countryList.appendChild(listItem);
+                }
+            });
+
+            if (searchTerm) {
+                countryList.style.display = 'block';
+            } else {
+                countryList.style.display = 'none';
+            }
+        }
+
+        
+        function showCountryList() {
+            const countryList = document.getElementById('countryList');
+            if (countryList.style.display === 'none') {
+                countryList.style.display = 'block';
+            } else {
+                countryList.style.display = 'none';
+            }
+        }
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+    const country = document.getElementById('countrySearch').value;
+    const companyName = document.getElementById('companyName').value;
+    const businessType = document.querySelector('input[name="businessType"]:checked').value;
+    const annualTurnover = document.querySelector('input[name="turnover"]:checked').value;
+
+    console.log("Country:", country);
+    console.log("Company Name:", companyName);
+    console.log("Business Type:", businessType);
+    console.log("Annual Turnover:", annualTurnover);
+
+    // Redirect to the create-account.js page
+    window.location.href = "create-account3.html";
+});
+
+    </script>
+</body>
+</html>

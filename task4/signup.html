@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+    background-image:url(./img/herro.jpg) ;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 150px;
+            padding: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        /* Header Styles */
+        #header {
+            background-color: rgb(31, 30, 30);
+            transition: 0.3s ease background-color;
+            
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            height: 100px;
+            margin: 0 auto;
+            /* padding: -10px; */
+            
+        }
+        .brand {
+            flex-grow: 1;
+            text-align: left;
+        }
+        .nav-list ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-list ul li {
+            margin-right: 10px; /* Reduce the margin for smaller items */
+        }
+        .nav-list ul li:last-child {
+            margin-right: 0;
+        }
+        .nav-list ul a {
+            font-size: 1rem; /* Reduce the font size for smaller items */
+            font-weight: 500;
+            letter-spacing: 0.2rem;
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            padding: 10px; /* Reduce padding for smaller items */
+            display: block;
+        }
+        .nav-list ul a::after {
+            content: attr(data-after);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            color: rgba(240, 248, 255, 0.021);
+            font-size: 10px; /* Reduce the font size for the pseudo-element */
+            letter-spacing: 20px; /* Reduce letter spacing for the pseudo-element */
+            z-index: -1;
+            transition: 0.3s ease letter-spacing;
+        }
+        .nav-list ul li:hover a::after {
+            transform: translate(-50%,-50%) scale(1);
+            letter-spacing: initial;
+        }
+        .nav-list ul li:hover a {
+            color: crimson;
+        }
+        .hamburger {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="header-container">
+            <div class="brand">
+                <a href="#"><h1>RBK PAYMENT</h1></a>
+            </div>
+            <div class="nav-list">
+                <div class="hamburger"><div class="bar"></div></div>
+                <ul>
+                    <li><a href="index.html" data-after="Home">Home</a></li>
+                    <li><a href="index.html" data-after="About">About</a></li>
+                    <li><a href="feture.html" data-after="Features">Features</a></li>
+                    <li><a href="index.html" data-after="Pricing">Pricing</a></li>
+                    <li><a href="index.html" data-after="Contact">Contact</a></li>
+                    
+                    <li><a href="createaccount.html" data-after="Open account">Open account</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Sign in to your account</h2>
+        <form id="signup-form" onsubmit="return redirectToProfile()">
+            <input type="text" id="email" placeholder="Email" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p><a href="password.html" id="forgot-password">Forgot Password?</a></p>
+    </div>
+    <script>
+        function redirectToProfile() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Simple client-side validation
+            if (email !== "boratepramod11@gmail.com" || password !== "123456789") {
+                alert("Invalid email or password. Please check your credentials.");
+                return false; // Prevent form submission
+            }
+
+            // Redirect to the profile page
+            window.location.href = "profile.html";
+            return false; // Prevent form submission (in case JavaScript is enabled)
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>chat to sales</title>
+    
+    <style>
+        /* Add your CSS styles here */
+        /* Example: Add styles for form elements */
+        body {
+            text-align: center; /* Center align the content */
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        h1{
+            padding: 50px;
+            color: blue;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            width: 100%;
+           
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        /* Style the "Submit" button */
+        input[type="submit"] {
+            background-color: #0074D9; /* Blue color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Style the "Submit" button on hover */
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat to Sales</h1>
+    <p>Need more information about Silverbird before you open a business account? <br>
+        Just fill out the form below and a dedicated sales exec will get back to you ASAP!</p>
+    <section id="chat">
+    <form action="chat1.html" method="post">
+        <div class="form-group">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="company-name">Company Name:</label>
+            <input type="text" id="company-name" name="company-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="company-country">Company Country:</label>
+            <select id="company-country" name="company-country" required>
+                <option value="" disabled selected>Select your country</option>
+                <!-- Add all countries dynamically -->
+                <script>
+                    const countries = ["Argentina", "Australia", "Brazil", "Canada", "China", "Egypt", "France", "Germany", "India", "Italy", "Japan", "Kenya", "Mexico", "Nigeria", "Russia", "Saudi Arabia", "South Africa", "Spain", "United Kingdom", "United States of America"];
+                    const select = document.getElementById("company-country");
+                    countries.forEach((country) => {
+                        const option = document.createElement("option");
+                        option.value = country;
+                        option.text = country;
+                        select.appendChild(option);
+                    });
+                </script>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="annual-turnover">Annual Turnover:</label>
+            <select id="annual-turnover" name="annual-turnover" required>
+                <option value="low"><$50k</option>
+                <option value="medium">$50K-$250K</option>
+                <option value="high">$250K-$500K</option>
+                <option value="high">$500K-$1M</option>
+                <option value="high">$1M-$5M</option>
+                <option value="high">$5M-$10M</option>
+                <option value="high">>$10M</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="radio-label">Is your company involved in international commerce of physical goods?:</label>
+            <div>
+                <label for="radio1">
+                    <input type="radio" id="radio1" name="radio-buttons" value="option1"> yes
+                </label>
+            </div>
+            <div>
+                <label for="radio2">
+                    <input type="radio" id="radio2" name="radio-buttons" value="option2"> no
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Style the "Submit" button -->
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box {
+            height: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .radio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .radio-group {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            width: 300px;
+            margin: 10px;
+            position: relative; 
+            
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .radio-group input[type="radio"] {
+            display: none; 
+            
+        }
+
+        .toggle-button {
+            width: 30px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .radio-group input[type="radio"]:checked + label .toggle-button {
+            background-color: #007bff;
+        }
+
+        .continue-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 300px;
+        }
+
+        .continue-button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-msg {
+            color: crimson;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <section id="createaccount">
+        <h1>Check Your Eligibility</h1>
+        <p>We work with companies involved in the international trade of physical goods, and in certain jurisdictions. Let's see if you're the right fit.</p>
+
+        <h1>What is your legal entity?</h1>
+        <div class="radio-container">
+            <div class="radio-group" id="company-info">
+                <input type="radio" id="company" name="account-type" value="company">
+                <label for="company">
+                    <div class="toggle-button">></div> Company
+                </label>
+                <p>If you represent a company involved in international trade, you may be eligible for our services.</p>
+            </div>
+
+            <div class="radio-group" id="sole-trader-info">
+                <input type="radio" id="sole-trader" name="account-type" value="sole-trader">
+                <label for="sole-trader">
+                    <div class="toggle-button">></div> I am a Sole Trader
+                </label>
+                <p>If you are a sole trader engaged in international trade,
+                    we wnat to be add the coin type of the server and bottom atom  which are to be finding at 
+                    the time of profile handling and the server are to be the main part of bokat ja rbk we have solutions tailored to your needs.</p>
+            </div>
+
+            <div class="radio-group" id="no-account-info">
+                <input type="radio" id="no-account" name="account-type" value="no-account">
+                <label for="no-account">
+                    <div class="toggle-button">></div> I don't have an account
+                </label>
+                <p>If you don't have an account with us yet, we can help you get started.</p>
+            </div>
+
+            <div class="error-msg" id="error-msg"></div>
+        </div>
+
+        <button class="continue-button" onclick="validateSelection()">Continue</button>
+    </section>
+    <script>
+        function validateSelection() {
+            var selectedValue = document.querySelector('input[name="account-type"]:checked');
+
+            if (selectedValue) {
+                
+                window.location.href = "create-account-2.html";
+            } else {
+               
+                alert("Please choose one !");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        #logoutBtn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="logoutBtn" onclick="logout()">Logout</button>
+    <div class="container" id="profileContainer">
+        <h2>User Profile</h2>
+        <p><strong>Name:</strong> <span id="userName"></span></p>
+        <p><strong>Email:</strong> <span id="userEmail"></span></p>
+    </div>
+
+    <script>
+        const user = {
+            name: "Pramod ",
+            email: "This is the user profile page which content the user email address",
+        };
+
+        function populateUserProfile() {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userEmail').textContent = user.email;
+        }
+
+        function logout() {
+            
+            window.location.href = 'index.html'; 
+            
+        }
+
+                window.addEventListener('load', populateUserProfile);
+    </script>
+</body>
+</html>
